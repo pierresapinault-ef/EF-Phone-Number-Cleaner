@@ -1,0 +1,116 @@
+﻿<Window x:Name="mainWindow" 
+    x:Class="PhoneNumberCleaner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PhoneNumberCleaner"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="Phone Number Cleaner"
+        Icon="smartphone.ico"  
+        ResizeMode="CanResize" Width="1000" Height="600" Top="100" Left="100" HorizontalAlignment="Left" VerticalAlignment="Top">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="69*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnOpenFile" 
+                Click="btnOpenFile_Click" 
+                Content="Upload File" 
+                HorizontalAlignment="Left" 
+                Margin="67,40,0,0" 
+                VerticalAlignment="Top" 
+                Width="121" 
+                Grid.ColumnSpan="2" 
+                Height="50"
+                Background="#00a4c3"
+                Foreground="White"
+                FontSize="18px"
+                />
+        <Label x:Name="FileName" 
+               Content="" 
+               HorizontalAlignment="Left" 
+               Margin="141.8,26,0,0" 
+               VerticalAlignment="Top" 
+               Width="316" 
+               Grid.Column="1"/>
+        <Button x:Name="startBtn" 
+                Click="start_Click" 
+                Content="START"
+                Foreground="White"
+                FontSize="25px"
+                Grid.Column="1" 
+                HorizontalAlignment="Center" 
+                Margin="327.8,267,439.6,0" 
+                VerticalAlignment="Top" 
+                Width="159" 
+                Height="79" 
+                RenderTransformOrigin="0.5,1.755"
+                ToolTip="Click here to start!"
+                IsEnabled="False">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#00a4c3"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#ec008c"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" Value="DarkGray"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Label x:Name="ProgressBarLabel" 
+               Content="" 
+               Grid.Column="1" 
+               HorizontalAlignment="Left" 
+               Margin="9.8,163,0,0" 
+               VerticalAlignment="Top" 
+               Width="126"/>
+        <ProgressBar x:Name="progressBar" 
+                     Grid.Column="1" 
+                     Value="0" 
+                     HorizontalAlignment="Left" 
+                     Height="41" 
+                     Margin="9.8,194,0,0" 
+                     VerticalAlignment="Top" 
+                     Width="842"
+                     Minimum="0"
+                     Maximum="100"/>
+        <Label x:Name="rowsLabel" 
+               Content="" 
+               Grid.Column="1" 
+               HorizontalAlignment="Left" 
+               Margin="141.8,52,0,0" 
+               VerticalAlignment="Top" 
+               Width="316"/>
+        <Label x:Name="tipsLabel" 
+               Content="Tip => Remember to rename the first sheet in your excel file with the appropriate market code" 
+               Grid.Column="1" 
+               HorizontalAlignment="Left" 
+               Margin="35.8,530,0,0" 
+               VerticalAlignment="Top" 
+               Width="853"/>
+        <Label x:Name="marketLabel" 
+               Content="" 
+               Grid.Column="1" 
+               HorizontalAlignment="Left" 
+               Margin="141.8,78,0,0" 
+               VerticalAlignment="Top" 
+               Width="423"/>
+        <!--<RadioButton x:Name="radioButtonOne" Tag="true" GroupName="rb" Checked="Radio_Checked" Content="Message Bird" Grid.Column="1" HorizontalAlignment="Left" Margin="550.8,40,0,0" VerticalAlignment="Top" Width="154"/>
+        <RadioButton x:Name="radioButtonTwo" Tag="false" GroupName="rb" Checked="Radio_Checked" IsChecked="True" Content="SF Marketing Cloud" Grid.Column="1" HorizontalAlignment="Left" Margin="550.8,62,0,0" VerticalAlignment="Top" Width="154"/>-->
+        <TextBlock x:Name="textBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="35.8,397,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="70" Width="808"/>
+    </Grid>
+</Window>
